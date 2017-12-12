@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="95">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -22,9 +22,7 @@
           <itemPath>include/alert/AlertMessageAliasInformationCriteria.h</itemPath>
           <itemPath>include/alert/AlertMessageAliasPlugin.h</itemPath>
           <itemPath>include/alert/AlertSequence.h</itemPath>
-          <itemPath>include/alert/AlertStatus.h</itemPath>
           <itemPath>include/alert/AlertTimeSlot.h</itemPath>
-          <itemPath>include/alert/AlertTrackingEvent.h</itemPath>
           <itemPath>include/alert/AlertType.h</itemPath>
           <itemPath>include/alert/AlertValue.h</itemPath>
         </logicalFolder>
@@ -173,7 +171,6 @@
           <itemPath>src/alert/AlertMessageAliasInformationCriteria.cpp</itemPath>
           <itemPath>src/alert/AlertMessageAliasPlugin.cpp</itemPath>
           <itemPath>src/alert/AlertSequence.cpp</itemPath>
-          <itemPath>src/alert/AlertStatus.cpp</itemPath>
           <itemPath>src/alert/AlertTimeSlot.cpp</itemPath>
           <itemPath>src/alert/AlertTrackingEvent.cpp</itemPath>
           <itemPath>src/alert/AlertType.cpp</itemPath>
@@ -189,7 +186,7 @@
           <itemPath>src/engine/EngGrp.cpp</itemPath>
           <itemPath>src/engine/Engine.cpp</itemPath>
         </logicalFolder>
-        <logicalFolder name="f1" displayName="filter" projectFiles="true">
+        <logicalFolder name="filter" displayName="filter" projectFiles="true">
           <itemPath>src/filter/Filter.cpp</itemPath>
           <itemPath>src/filter/FilterParameter.cpp</itemPath>
           <itemPath>src/filter/FilterParameterValue.cpp</itemPath>
@@ -298,7 +295,6 @@
     <Elem>include/asset</Elem>
     <Elem>include/information</Elem>
     <Elem>include/media</Elem>
-    <Elem>include/group</Elem>
     <Elem>include/pack</Elem>
     <Elem>include/plugin</Elem>
     <Elem>include/probe</Elem>
@@ -311,7 +307,6 @@
     <Elem>src/asset</Elem>
     <Elem>src/information</Elem>
     <Elem>src/media</Elem>
-    <Elem>src/group</Elem>
     <Elem>src/pack</Elem>
     <Elem>src/plugin</Elem>
     <Elem>src/probe</Elem>
@@ -323,12 +318,14 @@
     <Elem>src/engine</Elem>
     <Elem>include/filter</Elem>
     <Elem>include/search</Elem>
-    <Elem>include/message</Elem>
     <Elem>include/source</Elem>
     <Elem>src/filter</Elem>
     <Elem>src/search</Elem>
     <Elem>src/source</Elem>
+    <Elem>include/message</Elem>
+    <Elem>include/group</Elem>
     <Elem>src/message</Elem>
+    <Elem>src/group</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -341,7 +338,7 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
-          <commandlineTool>DISTCC_FALLBACK=0 distcc g++-4.7</commandlineTool>
+          <commandlineTool>g++</commandlineTool>
           <incDir>
             <pElem>include</pElem>
           </incDir>
@@ -349,7 +346,7 @@
           <warningLevel>2</warningLevel>
         </ccTool>
         <linkerTool>
-          <commandlineTool>distcc g++-4.7</commandlineTool>
+          <commandlineTool>g++</commandlineTool>
           <linkerLibItems>
             <linkerLibLibItem>wt</linkerLibLibItem>
             <linkerLibLibItem>wtdbo</linkerLibLibItem>
@@ -408,11 +405,7 @@
       </item>
       <item path="include/alert/AlertSequence.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/alert/AlertStatus.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/alert/AlertTimeSlot.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/alert/AlertTrackingEvent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/alert/AlertType.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -440,6 +433,14 @@
             flavor2="0">
       </item>
       <item path="include/filter/FilterType.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/Group.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupField.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupType.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupValue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/information/Information.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -472,14 +473,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="include/group/Group.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupField.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupType.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupValue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/pack/Option.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -527,7 +520,10 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="include/primaryKeys/GroupValueId.h" ex="false" tool="3" flavor2="0">
+      <item path="include/primaryKeys/GroupValueId.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="include/primaryKeys/PackOptionId.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -701,8 +697,6 @@
       </item>
       <item path="src/alert/AlertSequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/alert/AlertStatus.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/alert/AlertTimeSlot.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/alert/AlertTrackingEvent.cpp" ex="false" tool="1" flavor2="0">
@@ -733,6 +727,14 @@
             flavor2="0">
       </item>
       <item path="src/filter/FilterType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/Group.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupField.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/information/Information.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -765,14 +767,6 @@
             ex="false"
             tool="1"
             flavor2="0">
-      </item>
-      <item path="src/group/Group.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupField.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupType.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/pack/Option.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -946,11 +940,7 @@
       </item>
       <item path="include/alert/AlertSequence.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/alert/AlertStatus.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/alert/AlertTimeSlot.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/alert/AlertTrackingEvent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/alert/AlertType.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -978,6 +968,14 @@
             flavor2="0">
       </item>
       <item path="include/filter/FilterType.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/Group.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupField.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupType.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupValue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/information/Information.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1010,14 +1008,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="include/group/Group.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupField.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupType.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupValue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/pack/Option.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1065,7 +1055,10 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="include/primaryKeys/GroupValueId.h" ex="false" tool="3" flavor2="0">
+      <item path="include/primaryKeys/GroupValueId.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="include/primaryKeys/PackOptionId.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1239,8 +1232,6 @@
       </item>
       <item path="src/alert/AlertSequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/alert/AlertStatus.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/alert/AlertTimeSlot.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/alert/AlertTrackingEvent.cpp" ex="false" tool="1" flavor2="0">
@@ -1271,6 +1262,14 @@
             flavor2="0">
       </item>
       <item path="src/filter/FilterType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/Group.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupField.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/information/Information.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1303,14 +1302,6 @@
             ex="false"
             tool="1"
             flavor2="0">
-      </item>
-      <item path="src/group/Group.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupField.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupType.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/pack/Option.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1419,7 +1410,7 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
-          <commandlineTool>DISTCC_FALLBACK=0 distcc</commandlineTool>
+          <commandlineTool>g++</commandlineTool>
           <incDir>
             <pElem>include</pElem>
           </incDir>
@@ -1466,11 +1457,7 @@
       </item>
       <item path="include/alert/AlertSequence.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/alert/AlertStatus.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/alert/AlertTimeSlot.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/alert/AlertTrackingEvent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/alert/AlertType.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1484,6 +1471,8 @@
       </item>
       <item path="include/asset/AssetRelease.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/engine/EngGrp.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/engine/Engine.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/filter/Filter.h" ex="false" tool="3" flavor2="0">
@@ -1496,6 +1485,14 @@
             flavor2="0">
       </item>
       <item path="include/filter/FilterType.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/Group.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupField.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupType.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/group/GroupValue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/information/Information.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1528,14 +1525,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="include/group/Group.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupField.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupType.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/group/GroupValue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/pack/Option.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1581,7 +1570,10 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="include/primaryKeys/GroupValueId.h" ex="false" tool="3" flavor2="0">
+      <item path="include/primaryKeys/GroupValueId.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="include/primaryKeys/PackOptionId.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1737,8 +1729,6 @@
       </item>
       <item path="src/alert/AlertSequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/alert/AlertStatus.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/alert/AlertTimeSlot.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/alert/AlertTrackingEvent.cpp" ex="false" tool="1" flavor2="0">
@@ -1755,6 +1745,8 @@
       </item>
       <item path="src/asset/AssetRelease.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/engine/EngGrp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/engine/Engine.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/filter/Filter.cpp" ex="false" tool="1" flavor2="0">
@@ -1767,6 +1759,14 @@
             flavor2="0">
       </item>
       <item path="src/filter/FilterType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/Group.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupField.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group/GroupValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/information/Information.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1799,14 +1799,6 @@
             ex="false"
             tool="1"
             flavor2="0">
-      </item>
-      <item path="src/group/Group.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupField.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupType.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/group/GroupValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/pack/Option.cpp" ex="false" tool="1" flavor2="0">
       </item>
